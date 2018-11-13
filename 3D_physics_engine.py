@@ -279,6 +279,7 @@ class Object3D:
 
 
 def collision_wall(pol):
+    
     b = 15000
     ang_v = pol.ang_velocity
     v = numpy.array(pol.velocity)
@@ -321,19 +322,16 @@ def collision_detection(pol1, pol2):
     for i in pol1.faces_v:
         for vertex in i:
             if vertex not in v1:
-                v1.append(vertex)
-    
+                v1.append(vertex)    
     for i in pol2.faces_v:
         for vertex in i:
             if vertex not in v2:
                 v2.append(vertex)
-    
+     
     for i in v1:
-        vert1.append(pol1.vertices[i - 1])
-    
+        vert1.append(pol1.vertices[i - 1])    
     for i in v2:
         vert2.append(pol2.vertices[i - 1])
-    
     
     # The calculation of the collision point, which will be the remaining element of vert2, 
     # is following
